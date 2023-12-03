@@ -1,0 +1,235 @@
+/* body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(45deg, #ad3282, #5b2c73, #7f165a);
+  background-size: 300% 300%;
+  animation: gradient 20s infinite;
+  font-family: "Pacifico", cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: -2;
+  display: none;
+  object-fit: fill;
+  mix-blend-mode: screen;
+  opacity: 25%;
+  animation: vhs 8s infinite linear;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #ad3282, #5b2c73, #7f165a);
+  background-size: 300% 300%;
+  animation: gradient 20s infinite;
+  font-family: "Pacifico", cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: -2;
+  display: none;
+  object-fit: cover;
+  mix-blend-mode: screen;
+  opacity: 25%;
+  animation: vhs 8s infinite linear;
+}
+
+.overlay1 {
+  position: fixed;
+  display: flex;
+}
+
+.sorry-container {
+  position: relative;
+  top: -2vmax;
+  z-index: 1;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.beautiful-text {
+  font-size: 1.8rem;
+  color: #fff;
+  animation: fadeIn 3s ease-in-out;
+  text-shadow: 0 0 7px #f9cbcb;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+body:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(bg.jpg) center center/cover no-repeat;
+  opacity: 0.3;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .beautiful-text {
+    font-size: 2rem;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  background-color: #e11d48;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 13px;
+  box-shadow: 0 0 10px rgba(251, 113, 133, 0.2);
+  text-shadow: 0 0 10px #f9cbcb;
+}
+
+.transparent-button {
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 0.5rem;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.transparent-button:hover {
+  background-color: #f9cbcb;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.output-panel {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 2px solid #fedada;
+  border-radius: 5px;
+  text-align: center;
+  border-radius: 0.5rem;
+  font-size: large;
+  display: flex;
+  margin-right: 3rem;
+  margin-left: 3rem;
+  box-shadow: 0 0 10px #f9cbcb;
+}
+
+.output-text {
+  font-size: 1rem;
+  color: #f7cbcb;
+}
+
+#output {
+  font-weight: bold;
+  color: #fff;
+}
+
+.lev-text {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  overflow: hidden;
+  display: inline-block;
+}
+.code-snippet {
+  animation-duration: 1s;
+  animation-name: explode;
+  animation-fill-mode: forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+#video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .beautiful-text {
+    top: 4rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .transparent-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
