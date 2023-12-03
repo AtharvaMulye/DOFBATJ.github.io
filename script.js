@@ -1,6 +1,6 @@
 let currentLevel = 0;
 
-function showIntro() {
+const showIntro = () => {
   document.getElementById("intro").style.display = "block";
   document.addEventListener("click", function startLevels() {
     document.getElementById("intro").style.display = "none";
@@ -8,9 +8,9 @@ function showIntro() {
     document.getElementById("bgMusic").play();
     nextLevel();
   });
-}
+};
 
-function showLevel(level) {
+const showLevel = (level) => {
   document.querySelectorAll(".page").forEach((page) => {
     page.style.display = "none";
   });
@@ -24,7 +24,9 @@ function showLevel(level) {
   if (level === 0) {
     showIntro();
   } else if (level <= 4) {
-    document.getElementById(`level${level}`).style.display = "block";
+    const levelElement = document.getElementById(`level${level}`);
+    levelElement.style.display = "block";
+
     const currentOverlay = document.getElementById(`overlay${level}`);
     currentOverlay.style.display = "block";
 
@@ -33,26 +35,28 @@ function showLevel(level) {
   } else {
     const endingPage = document.getElementById("ending");
     endingPage.style.display = "block";
-    endingPage.addEventListener("click", function reloadPage() {
-      location.reload();
-    });
+    endingPage.addEventListener("click", reloadPage);
   }
-}
+};
 
-function nextLevel() {
+const nextLevel = () => {
   if (currentLevel < 5) {
     currentLevel++;
     showLevel(currentLevel);
   }
-}
+};
 
-function prevLevel() {
+const prevLevel = () => {
   if (currentLevel > 1) {
     currentLevel--;
     showLevel(currentLevel);
   }
-}
+};
 
-document.addEventListener("DOMContentLoaded", function () {
+const reloadPage = () => {
+  location.reload();
+};
+
+document.addEventListener("DOMContentLoaded", () => {
   showLevel(currentLevel);
 });
